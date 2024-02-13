@@ -1,0 +1,11 @@
+name: my_third_secret_variable_test
+on: push
+
+jobs: 
+  first_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: just an echo
+        run: echo ${{ secrets.ghost_name }}
+      - name: last name
+        run: echo $lname
