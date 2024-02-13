@@ -6,3 +6,9 @@ jobs:
     steps:
       - name: just an echo
         run: echo "hello World"  
+
+  second_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: just another echo
+        run: echo "hello second World"  
