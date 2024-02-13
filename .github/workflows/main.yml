@@ -8,7 +8,13 @@ jobs:
         run: echo "hello World"  
 
   second_jobs:
-    needs: first_jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: just another echo
+        run: echo "hello second World"  
+
+  third_jobs:
+    needs: [ first_jobs, second_jobs ]
     runs-on: ubuntu-latest
     steps:
       - name: just another echo
