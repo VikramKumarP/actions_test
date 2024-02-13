@@ -1,0 +1,37 @@
+name: my_first
+on: push
+env:
+  name: vikram
+  lname: kumar
+jobs: 
+  first_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: just an echo
+        run: echo $name 
+
+  second_jobs:
+    needs: first_jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: just another echo
+        run: echo $lname
+
+  third_jobs:
+    runs-on: ubuntu-latest
+    env:
+      name: rayan
+    steps:
+      - name: just another echo
+        run: echo $name
+
+  fourth_jobs:
+    needs: third_jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: just another echo
+        run: echo ${{ env.name }}
+      - name: few comments
+        run: |
+          ls -lart
+          pwd
