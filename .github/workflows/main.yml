@@ -8,14 +8,25 @@ jobs:
         run: echo "hello World"  
 
   second_jobs:
+    needs: first_job
     runs-on: ubuntu-latest
     steps:
       - name: just another echo
         run: echo "hello second World"  
 
   third_jobs:
-    needs: [ first_jobs, second_jobs ]
     runs-on: ubuntu-latest
     steps:
       - name: just another echo
         run: echo "hello second World"  
+
+  fourth_jobs:
+    needs: third_jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: just another echo
+        run: echo "hello second World"  
+      - name: few comments
+        run: |
+          ls -lart
+          pwd
